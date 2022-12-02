@@ -3,6 +3,8 @@ package com.openclassrooms.magicgithub.utils;
 import com.openclassrooms.magicgithub.model.User;
 
 import java.util.List;
+import java.util.Objects;
+
 import androidx.recyclerview.widget.DiffUtil;
 
 public class UserDiffCallback extends DiffUtil.Callback{
@@ -27,7 +29,7 @@ public class UserDiffCallback extends DiffUtil.Callback{
 
     @Override
     public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-        return oldUsers.get(oldItemPosition).getId() == newUsers.get(newItemPosition).getId() ;
+        return Objects.equals(oldUsers.get(oldItemPosition).getId(), newUsers.get(newItemPosition).getId());
     }
 
     @Override
